@@ -1,7 +1,7 @@
 # JFiK lab 6          Marcin Jasiński          Informatyka WE        sem3
 ## Wstęp
 Powyższe pliki działają używając lex i bisona.
-bisonbj.y i lexbj.l są zadaniami od pani Beaty Jankowskiej, a bisonjd.y i lexjd.l są od pana J. Dudtkiewicza. 
+bisonbj.y i lexbj.l są zadaniami od pani Beaty Jankowskiej, a bisonjd.y i lexjd.l są od pana J. Dudkiewicza. 
 
 ## Zadania JD
 ### o programie
@@ -36,6 +36,9 @@ jeżeli jest spełniony warunek a<3, wykonywana jest instrukcja. W preciwnym wyp
 np. WHILE b b=b-1; a=a+1;
 dopuki zmienna b jest rózna od 0, zmienna ta jest dekrementowana (wykonywana jest pierwsze Expr) i własciwa instrukcja opisana w Expr. Pętla ta jest dopiero przerywana, gdy b jest równe 0. Do tego czasu program wraca do wykonanych już instrukcji.
 
+### podziękowania
+Chciałbym podziękować rodzinie za wsparcie, Tomaszowi Kiliańczykowi za pomoc w zrozumieniu bisona i Jakubowi Dudkiewiczowi za wzbudzenie we mnie zainteresowania językami formalnymi i kompilatorami
+
 ## Zadania BJ
 ### zadA
 wyrażenie regularne definiujące opisany zbiór danych:
@@ -62,7 +65,7 @@ HEX->INT HEX| CHAR HEX| INT| CHAR,
 FLOAT->INT . INT,
 INT->CYFRA|CYFRA INT,
 CYFRA->[0|1|2|3|4|5|6|7|8|9|ɛ],
-CHAR->[A|B|C|D|E|F| ε]
+CHAR->[A|B|C|D|E|F|ε]
 }
 
 ### zadC

@@ -42,13 +42,13 @@ ZADANIE : PRINT Expr {if (wynik_if==1) printf("%d",$2);}
 			else printf("error\n");
 			wynik_if=1;
 		}
-		| WHILE ZMIENNA Expr ZADANIE
-		{	printf("jestem %s\n",$2);
-			if($2==0){wynik_if=1;}
+		| WHILE ZMIENNA Expr Expr
+		{	wynik_if=0;
+			printf("jestem %i\n",wartosci[indeksZmiennej($2)]);
+			if(wartosci[indeksZmiennej($2)]==0){wynik_if=1;}
 			if (wynik_if==0){printf("nie spelniony\n");}
-			else if(wynik_if==1)printf("ok\n");
+			if(wynik_if==1)printf("ok\n");
 			else printf("error\n");
-			wynik_if=1;
 		}/*a=5;b=0;WHILE a a=a-1 b=b+1;*/
 		| ZMIENNA '=' Expr 
 		{if(wynik_if==1)

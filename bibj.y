@@ -25,10 +25,19 @@ S : ZADANIE ';' S
   | /*nic*/
   ;
 
-ZADANIE : ZADANIE INT	{ sumuj_int(*$2);	}
-		| ZADANIE FLOAT	{ sumuj_float(*$2);	}
-		| ZADANIE HEX	{ sumuj_hex(*$2);	}
-		| ZADANIE EXP	{ sumuj_exp(*$2);	}
+ZADANIE : 
+		ZADANIE INT	
+		{ sumuj_int(*$2);	}
+		|
+		 ZADANIE FLOAT	
+		{ sumuj_float(*$2);	}
+		
+		| ZADANIE HEX	
+		{ sumuj_hex(*$2);	}
+		
+		| ZADANIE EXP	
+		{ sumuj_exp(*$2);	}
+		
 		| /*nic*/
 		;
  
@@ -40,7 +49,7 @@ void sumuj_int(std::string& linia)
 	
 	unsigned int suma = 0;
 	std::string temp;
-	for( unsigned int i = 2; i <= linia.length(); i++)
+	for( unsigned int i = 0; i <= linia.length(); i++)
 	{	if( linia[i] != ' ' && linia[i] != '\0') { temp += linia[i]; }
 		else if(!temp.empty())
 			{	suma += std::stoi(temp); 
@@ -55,7 +64,7 @@ void sumuj_float(std::string& linia)
 {	
 float suma = 0;
 	std::string temp;
-	for( unsigned int i = 2; i <= linia.length(); i++)
+	for( unsigned int i = 0; i <= linia.length(); i++)
 	{	if( linia[i] != ' ' && linia[i] != '\0')  { temp += linia[i]; }
 		else if(!temp.empty())
 		{	suma += std::stof( temp );
@@ -70,7 +79,7 @@ void sumuj_hex(std::string& linia)
 {	
 unsigned int suma = 0;
 	std::string temp;
-	for( unsigned int i = 2; i <= linia.length(); i++)
+	for( unsigned int i = 0; i <= linia.length(); i++)
 	{	if( linia[i] != ' ' && linia[i] != '\0') { temp += linia[i]; }
 		else if(!temp.empty())
 			{	unsigned int x = 0;   
@@ -89,7 +98,7 @@ void sumuj_exp(std::string& linia)
 {	
 	float suma = 0; int zn=0; int znak=0;float temsu=0;
 	std::string temp1,temp2,temp;
-	for( unsigned int i = 2; i <= linia.length(); i++)
+	for( unsigned int i = 0; i <= linia.length(); i++)
 	{	if(zn==0&& linia[i] != ' ' && linia[i] != '\0')
 		{ 	temp1 += linia[i];if(linia[i+1]=='E')
 			{if(linia[i+2]=='-')znak=1;else znak=0;  i+=2;zn++;} 

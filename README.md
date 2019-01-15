@@ -39,23 +39,23 @@ dopuki zmienna b jest rózna od 0, zmienna ta jest dekrementowana (wykonywana je
 ## Zadania BJ
 ### zadA
 wyrażenie regularne definiujące opisany zbiór danych:
-^(
-([ \t]+[0-9]+)+
-|(([ \t]+[0-9]+)([.][0-9]+)?)+
-|([ \t]+[0-9]+[.][0-9]+[E][+-][0-9]+)+
-|([ \t]+[0-9A-F]+)+
-)$
-Int float exp hex
+- ^(
+- ([ \t]+[0-9]+)+
+- |(([ \t]+[0-9]+)([.][0-9]+)?)+
+- |([ \t]+[0-9]+[.][0-9]+[E][+-][0-9]+)+
+- |([ \t]+[0-9A-F]+)+
+- )$
+linijki po kolei przyjmują liinijki wyrażeń typu: Int float exp hex.
 
 ### zadB
-G = <V, T, P, S >, gdzie
-V – zbiór symboli nieterminalnych, 
-T – zbiór symboli terminalnych, 
-P – lista produkcji,
-S – symbol początkowy
-V = {CYFRA, CHAR, INT, HEX, FLOAT, EXP, S}
-T = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, +, ., ε }
-P ={
+- G = <V, T, P, S >, gdzie
+- V – zbiór symboli nieterminalnych, 
+- T – zbiór symboli terminalnych, 
+- P – lista produkcji,
+- S – symbol początkowy
+- V = {CYFRA, CHAR, INT, HEX, FLOAT, EXP, S}
+- T = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F, +, ., ε }
+- P ={
 S->INT S|FLOAT S|HEX S|EXP S| ɛ,
 EXP->FLOAT E + INT,
 HEX->INT HEX| CHAR HEX| INT| CHAR,
@@ -66,8 +66,10 @@ CHAR->[A|B|C|D|E|F| ε]
 }
 
 ### zadC
-w plikach
-w lex program za pomocą wyrażeń regularnych rospoznaje linie danego tyou. w bijcjonie wywoluje funkcje rozdzielające wyrażenia i sumujące je. następnie, suma jest przetwarzana na odpowiedni język
+program w plikach
+w lex program za pomocą wyrażeń regularnych rospoznaje linie danego tyou. w bijcjonie wywoluje funkcje rozdzielające wyrażenia i sumujące je. następnie, suma jest przetwarzana na odpowiedni typ.
+- np. 2.1 3.1      5.9
+- float: 11.1
 ### zadD
-w plikach
-modyfikacja pliku .l, by przyjmował na początku numery wierszy w odpowiedniej kolejnosci. W przypadku błedu, program kończy pracę.
+program w plikach
+modyfikacja wyrażen regularnych z pliku .l, by przyjmował na początku numery wierszy w odpowiedniej kolejnosci. W przypadku błedu, program kończy pracę.

@@ -1,25 +1,40 @@
-# jfikzad
+# JFiK lab 6          Marcin Jasiński          Informatyka WE        sem3
 ## Wstęp
 Powyższe pliki działają używając lex i bisona.
-bisonbj.y i lexbj.l są zadaniami od pani Beaty Jankowskiej, a bisonjd.y i lexdj.l są od pana J. Dudtkiewicza. 
+bisonbj.y i lexbj.l są zadaniami od pani Beaty Jankowskiej, a bisonjd.y i lexjd.l są od pana J. Dudtkiewicza. 
 
 ## Zadania JD
-możliwe komendy w programie:
-- Nadanie zmiennej wartosci - variable_name = Expr ;
+### o programie
+#### możliwe komendy w programie:
+- Nadanie zmiennej wartosci - Zmienna = Expr ;
 - Wypisanie działania lub zmiennej - PRINT Expr, PRINT Zmienna ;
 - Instrukcja warunkowa - IF Expr Expr ;
 - Pętla while - WHILE Zmienna Expr Expr ;
+#### przykładowy program
+- a=9;
+- b=3;
+- c=5;
+- a=a+c; /*WHILE c c=c-1 a=a+1;*/
+- IF b>a wieksze=b;
+- IF b<a wieksze=a;
+- PRINT wieksze;
+
 
 ### 1 Nazwy zmiennych
-Początkowy program uznawał za nazwy zmiennych tylko pojedyńcze znaki. W tym zadaniu rozwiązałem ten problem za pomocą użycia tablicy char.
+Początkowy program uznawał za nazwy zmiennych tylko pojedyńcze znaki. W tym zadaniu rozwiązałem ten problem za pomocą użycia tablicy char. Starczyło zmienić wyrażenie regularne w skanrze, aby uwzlględniał wyrany zamiast pojedynczych liter.
 
 ### 2 Interpreter
-Początkowy program nie uwzględiał kolejności działań. Rozwiązałem ten problem defiiując
+Początkowy program nie uwzględiał kolejności działań. Rozwiązałem ten problem defiiując %type <iValue> Expr i %type <iValue> Term, gdzie Expr realizuje dodawania i odejmowanie, a Term określa mnożenie i dzielenie
 
 ### 3 Dodatkowe instrukcje
-***komenka if dziala, ale pętla while nie***
 definiuję dodatkowe tokeny if i while
-
+#### IF Expr Expr;
+np. IF a<3 PRINT a;9
+jeżeli jest spełniony warunek a<3, wykonywana jest instrukcja. W preciwnym wypadku nic się nie dzieje. (oprócz wyświetlenia komunikatu o niespełnieniu warunku.)
+#### WHILE Zmienna Expr Expr;
+***instrukcja warunkowa if dziala, ale pętla while nie, więc jest tylko omówione ogólne działanie***
+np. WHILE b b=b-1; a=a+1;
+dopuki zmienna b jest rózna od 0, zmienna ta jest dekrementowana (wykonywana jest pierwsze Expr) i własciwa instrukcja opisana w Expr. Pętla ta jest dopiero przerywana, gdy b jest równe 0. Do tego czasu program wraca do wykonanych już instrukcji.
 
 ## Zadania BJ
 ### zadA
